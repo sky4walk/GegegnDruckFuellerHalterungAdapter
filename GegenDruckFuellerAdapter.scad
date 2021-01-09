@@ -7,7 +7,7 @@ BohrHalterungD      = 43;
 BohrHalterungH      = 23;
 BohrHalterungRandD  = 5;
 BohrHalterungRandH  = 5;
-GegendruckFuellerD  = 11;
+GegendruckFuellerD  = 10;
 GrundplatteAbstand  = 45;
 
 $fn=100;
