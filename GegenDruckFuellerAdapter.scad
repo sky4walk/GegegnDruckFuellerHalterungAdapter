@@ -10,6 +10,8 @@ BohrHalterungRandH  = 5;
 GegendruckFuellerD  = 10;
 GrundplatteAbstand  = 45;
 SchraubeD           = 5;
+StopfenD            = 20;
+StopfenH            = 15;
 
 $fn=100;
 
@@ -37,5 +39,8 @@ difference()
     translate([-(BohrHalterungD+BohrHalterungRandD)*2/3,GrundplatteAbstand-1,(BohrHalterungH+BohrHalterungRandH)/2])
         rotate([-90,0,0])
             cylinder(h=BohrHalterungRandH+2,r=SchraubeD/2,center=false);
-    
+    // damit wird der Hub verringert.
+    // ich hab einen Hub von 55mm
+    translate([0,0,-1])
+        cylinder(h=StopfenH+2,r=StopfenD/2,center=false);
 }
