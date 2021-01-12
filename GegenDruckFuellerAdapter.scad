@@ -10,8 +10,8 @@ BohrHalterungRandH  = 5;
 GegendruckFuellerD  = 10;
 GrundplatteAbstand  = 45;
 SchraubeD           = 6;
-StopfenD            = 21;
-StopfenH            = 15;
+StopfenD            = 22;
+StopfenH            = 5;
 
 $fn=100;
 
