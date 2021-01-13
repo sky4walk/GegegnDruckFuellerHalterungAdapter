@@ -8,13 +8,16 @@ BohrHalterungH      = 23;
 BohrHalterungRandD  = 5;
 BohrHalterungRandH  = 5;
 GegendruckFuellerD  = 10;
-GrundplatteAbstand  = 45;
+GrundplatteAbstand  = 80;
 SchraubeD           = 6;
-StopfenD            = 22;
-StopfenH            = 5;
+StopfenD            = 22; // durchmeser im GDA
+GasAuslassH         = 44; //laenge gas ablass
+StopfenH            = 26; //gummistopfen laenge
+StopfenInline = StopfenH - (GasAuslassH - (BohrHalterungH + BohrHalterungRandH) );
 
 $fn=100;
 
+echo (StopfenInline);
 difference()
 {
     union()
@@ -42,5 +45,5 @@ difference()
     // damit wird der Hub verringert.
     // ich hab einen Hub von 55mm
     translate([0,0,-1])
-        cylinder(h=StopfenH+2,r=StopfenD/2,center=false);
+        cylinder(h=StopfenInline+2,r=StopfenD/2,center=false);
 }
