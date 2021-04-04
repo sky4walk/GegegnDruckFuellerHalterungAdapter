@@ -22,14 +22,11 @@ difference()
 {
     union()
     {
-        cylinder(h=BohrHalterungRandH,r=(BohrHalterungRandD+BohrHalterungD)/2,center=false);
-        translate([0,0,BohrHalterungRandH])
-            cylinder(h=BohrHalterungH,r=BohrHalterungD/2,center=false);
-        translate([-(BohrHalterungD+BohrHalterungRandD)/2,0,0])
-            cube([BohrHalterungD+BohrHalterungRandD,GrundplatteAbstand,BohrHalterungRandH]);
-        
-        translate([-(BohrHalterungD+BohrHalterungRandD),GrundplatteAbstand,0])
-            cube([(BohrHalterungD+BohrHalterungRandD)*2,BohrHalterungRandH,BohrHalterungH+BohrHalterungRandH]);
+//        cylinder(h=BohrHalterungRandH,r=(BohrHalterungRandD+BohrHalterungD)/2,center=false);
+        translate([0,0,BohrHalterungRandH]) cylinder(h=BohrHalterungH,r=BohrHalterungD/2,center=false);
+//        translate([-(BohrHalterungD+BohrHalterungRandD)/2,0,0]) cube([BohrHalterungD+BohrHalterungRandD,GrundplatteAbstand,BohrHalterungRandH]);        
+        translate([-(BohrHalterungD+BohrHalterungRandD)/2,-GrundplatteAbstand/2,0]) cube([BohrHalterungD+BohrHalterungRandD,GrundplatteAbstand+GrundplatteAbstand/2,BohrHalterungRandH]);        
+        translate([-(BohrHalterungD+BohrHalterungRandD),GrundplatteAbstand,0]) cube([(BohrHalterungD+BohrHalterungRandD)*2,BohrHalterungRandH,BohrHalterungH+BohrHalterungRandH]);
         
     }
     translate([0,0,-1])
@@ -44,6 +41,6 @@ difference()
             cylinder(h=BohrHalterungRandH+2,r=SchraubeD/2,center=false);
     // damit wird der Hub verringert.
     // ich hab einen Hub von 55mm
-    translate([0,0,-1])
-        cylinder(h=StopfenInline+2,r=StopfenD/2,center=false);
+    //translate([0,0,-1]) cylinder(h=StopfenInline+2,r=StopfenD/2,center=false);
+    translate([0,0,BohrHalterungRandH+BohrHalterungH-StopfenInline+2]) cylinder(h=StopfenInline+2,r=StopfenD/2,center=false);
 }
