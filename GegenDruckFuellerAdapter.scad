@@ -13,6 +13,7 @@ SchraubeD           = 6;
 StopfenD            = 22; // durchmeser im GDA
 GasAuslassH         = 44; //laenge gas ablass
 StopfenH            = 26; //gummistopfen laenge
+LampenHalterung     = 30;
 StopfenInline = StopfenH - (GasAuslassH - (BohrHalterungH + BohrHalterungRandH) );
 
 $fn=100;
@@ -25,7 +26,11 @@ difference()
 //        cylinder(h=BohrHalterungRandH,r=(BohrHalterungRandD+BohrHalterungD)/2,center=false);
         translate([0,0,BohrHalterungRandH]) cylinder(h=BohrHalterungH,r=BohrHalterungD/2,center=false);
 //        translate([-(BohrHalterungD+BohrHalterungRandD)/2,0,0]) cube([BohrHalterungD+BohrHalterungRandD,GrundplatteAbstand,BohrHalterungRandH]);        
-        translate([-(BohrHalterungD+BohrHalterungRandD)/2,-GrundplatteAbstand/2,0]) cube([BohrHalterungD+BohrHalterungRandD,GrundplatteAbstand+GrundplatteAbstand/2,BohrHalterungRandH]);        
+// Steg
+        translate([-(BohrHalterungD+BohrHalterungRandD)/2,0,0]) cube([BohrHalterungD+BohrHalterungRandD,GrundplatteAbstand,BohrHalterungRandH]);        
+        translate([-(BohrHalterungD+BohrHalterungRandD)/2,-LampenHalterung,0]) cube([BohrHalterungD+BohrHalterungRandD,LampenHalterung,BohrHalterungRandH]);        
+//        translate([-(BohrHalterungD+BohrHalterungRandD)/2,-GrundplatteAbstand/2,0]) cube([BohrHalterungD+BohrHalterungRandD,GrundplatteAbstand+GrundplatteAbstand/2,BohrHalterungRandH]);        
+// Plexiglas halterung
         translate([-(BohrHalterungD+BohrHalterungRandD),GrundplatteAbstand,0]) cube([(BohrHalterungD+BohrHalterungRandD)*2,BohrHalterungRandH,BohrHalterungH+BohrHalterungRandH]);
         
     }
